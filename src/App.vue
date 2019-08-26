@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" @click.stop="onClick">
+    <tax-main />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Vue from "vue"
+import Tax from '@/views/tax'
+
+Vue.$broker = new Vue();
 
 export default {
-  name: 'app',
+  name: 'simple_tax_calculation_app',
   components: {
-    HelloWorld
+    'tax-main': Tax, 
+  },
+  methods: {
+    onClick(event) {
+      Vue.$broker.$emit("app-click");
+    },
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import '~@/styles/base.scss';
 </style>

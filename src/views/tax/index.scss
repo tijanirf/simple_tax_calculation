@@ -1,0 +1,43 @@
+@import '~@/styles/variables';
+
+.tax {
+  border: 2px solid $grey;
+  border-radius: 8px;
+  padding: 0 24px 24px;
+  height: 100%;
+
+  &__row {
+    margin-top: 16px;
+
+    span {
+      color: $red;
+      font-size: 12px;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+  }
+
+  &__result {
+    margin-top: 16px;
+
+    span {
+      display: block;
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+
+    button {
+      margin-left: 8px;
+    }
+  }
+}

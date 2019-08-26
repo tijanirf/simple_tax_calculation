@@ -1,0 +1,55 @@
+@import '~@/styles/variables';
+
+.input {
+  position: relative;
+  width: 100%;
+}
+
+input {
+  padding: 16px;
+  height: 24px;
+  width: 370px;
+  border: 1px solid $grey;
+  border-radius: 4px;
+  font-size: $font-size-input;
+
+  &:valid, &:focus, &:disabled {
+    padding-top: 24px;
+    padding-bottom: 8px;
+  }
+
+  &:focus{
+    border: 1px solid $blue;
+  }
+
+  &.error {
+    border: 1px solid $red
+  }
+
+  &.upper {
+    text-transform: uppercase
+  }
+}
+
+input:focus {
+  outline:none;
+  padding-bottom: 8px;
+}
+
+label {
+  color: $grey;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 16px;
+  top: 21px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+input:focus ~ label, input:valid ~ label {
+  top: 8px;
+  font-size: 12px;
+  color: $grey;
+}

@@ -1,0 +1,84 @@
+@import '~@/styles/variables';
+
+#app {
+  font-family: $font-text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  min-height: 768px !important;
+  overflow-x: hidden;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  font-size: 15px;
+  border: none;
+  font-weight: $font-weight-regular;
+  border-radius: 8px;
+  transition: background-color 0.5s ease;
+  outline: none;
+
+  &.btn-regular {
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+
+  &.primary {
+    background-color: $red;
+    border: 1px solid $red;
+    color: white;
+
+    &.disabled {
+      &:disabled {
+        color: white;
+        background-color: #cc2444;
+        border: 1px solid #cc2444;  
+      }
+    }
+
+    &:hover {
+      background-color: #cc2444;
+      border: 1px solid #cc2444;
+    }
+  }
+
+  &.secondary {
+    background-color: $white;
+    border: solid 1px $grey;
+    color: $black;
+
+    &:hover {
+      background-color: $grey;
+      border: 1px solid $grey;
+    }
+  }
+
+  &:disabled {
+    cursor: no-drop;
+    background-color: $grey;
+    border: 1px solid $grey;
+    color: #96969a;
+
+    &:hover {
+      background-color: $grey;
+      border: 1px solid $grey;
+    }
+  }
+}
+
+
+input {
+  outline: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: white;
+  border: none;
+
+  &:focus{
+    outline: none !important;
+  }
+}
