@@ -11,8 +11,8 @@
       <span>{{validationMessage}}</span>
     </div>
     <div class="tax__result">
-      <span>Annual Taxable Income: {{taxableIncome}}</span>
-      <span>Annual Tax Income: {{result}}</span>
+      <span>Annual Taxable Income: {{taxableIncome | formatMoney}}</span>
+      <span>Annual Tax Income: {{result | formatMoney}}</span>
     </div>
     <div class="tax__buttons">
       <button class="btn-regular secondary" @click="reset">Reset</button>
@@ -24,7 +24,7 @@
 <script>
 import Input from '@/components/input'
 import Dropdown from '@/components/dropdown'
-import { totalmem } from 'os';
+import { formatNumber } from '@/lib/filter'
 
 export default {
   name: 'tax-page',
@@ -41,19 +41,19 @@ export default {
       validationMessage: null,
       taxSchemes: [
         {
-          limit: 50000000,
+          multiplier: 50000000,
           percentage: 0.05
         },
         {
-          limit: 250000000,
+          multiplier: 200000000,
           percentage: 0.15
         },
         {
-          limit: 500000000,
+          multiplier: 250000000,
           percentage: 0.25
         },
         {
-          limit: null,
+          multiplier: null,
           percentage: 0.3
         },
       ],
@@ -145,9 +145,9 @@ export default {
         this.taxSchemes.forEach(scheme => {
           if (exit) {
             // Do nothing, handle if the exit condition is fully met before the loop ends.
-          } else if (remainder - scheme.limit >= 0) {
-            total += (scheme.limit * scheme.percentage)
-            remainder -= scheme.limit
+          } else if (scheme.multiplier && remainder - scheme.multiplier >= 0) {
+            total += (scheme.multiplier * scheme.percentage)
+            remainder -= scheme.multiplier
           } else {
             total += (remainder * scheme.percentage)
             exit = true
