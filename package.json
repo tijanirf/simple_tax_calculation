@@ -11,7 +11,7 @@
     "accounting-js": "^1.1.1",
     "core-js": "^2.6.5",
     "node-sass": "^4.12.0",
-    "sass-loader": "^7.3.1",
+    "sass-loader": "^10.1.1",
     "vue": "^2.6.10",
     "vuex": "^3.1.1",
     "webpack": "^4.39.2"
